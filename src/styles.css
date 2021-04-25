@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+
+/*@import '@angular/material/prebuilt-themes/pink-bluegrey.css';*/
+/* @import '@angular/material/prebuilt-themes/purple-green.css'; */
+/*@import '@angular/material/prebuilt-themes/indigo-pink.css';*/
+/*@import '@angular/material/prebuilt-themes/deeppurple-amber.css';*/
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+p{ margin-top: 25px; margin-bottom: 25px; margin-right: 25px; margin-left: 25px; }
+h1 { margin-left: 10px; }
+h2 { margin-left: 20px; }
+
+.box{ margin-left: 10px; margin-right:10px; margin-top:10px; margin-bottom:10px;}
+
+.text-background{background-color:rgb(116, 116, 116);}
+
+.sidenav { height: 100%; }
+
+.link{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.splash-area{
+    display: flex;
+    text-align: top;
+    justify-content: center;
+}
+
+.text-area{
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+}
+
+.style-text{
+    background-color:rgb(41, 41, 41); 
+    color:antiquewhite;
+}
+
+.v-scroll { overflow-y: auto !important; }
+.h-scroll { overflow-x: auto !important; }
+.scroll {overflow:auto !important;}
+
+.fill-width { width: 100%; }
+.fill-height { height: 100%; }
+
+.tile{ max-width:500px; max-height:500px; } 
+
+.indent { text-indent: 50px; }
+.align-left{ text-align: left !important; }
+.align-right{ text-align: right !important; }
+.align-center{ text-align: center !important;}
+
+.component-title { font-size: medium; }
+.component-text { font-size: small; }
+.component-note { font-size: x-small; }
+
+.foot-note{ text-align: center; font-size:xx-small; }
+
+.divide { border-top: 3px solid #bbb; }
+
+.background { background-color:dimgray }
