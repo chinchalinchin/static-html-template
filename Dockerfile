@@ -27,7 +27,7 @@ RUN apt-get update -y && apt-get install -y curl moreutils && \
 COPY --chown=chinchalinchin:admin --from=angular /home/build/ /home/build/
 COPY --chown=chinchalinchin:admin /conf/nginx.conf /etc/nginx/nginx.conf
 COPY --chown=chinchalinchin:admin /conf/mime.types /etc/nginx/mime.types
-COPY --chown=chinchalinchin:admin /scripts/bootstrap/ /home/scripts/bootsrap.sh
+COPY --chown=chinchalinchin:admin /scripts/entrypoint.sh /home/scripts/entrypoint.sh
 COPY --chown=chinchalinchin:admin /scripts/util/logging.sh /home/scripts/util/logging.sh
 
 # PERMISSION CONFIGURATOIN
@@ -37,4 +37,4 @@ RUN chown -R chinchalinchin:admin /home/build/ /var/cache/nginx/ /var/run/ /var/
 # ENTRYPOINT CONFIGURATION
 EXPOSE 8080
 USER chinchalinchin
-ENTRYPOINT [ "bash", "/home/scripts/bootstrap.sh" ]
+ENTRYPOINT [ "bash", "/home/scripts/entrypoint.sh" ]

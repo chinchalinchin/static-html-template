@@ -11,7 +11,7 @@ then
     exit 0
 elif [ $# -eq 0 ]
 then
-    log "Default Application Image Entrypoint" $SCRIPT_NAME
+    log "Default Application Entrypoint" $SCRIPT_NAME
 
     log "Substituting Environment Variables In \e[3mnginx.conf\e[0m" $SCRIPT_NAME
     SUB_STR='$NGINX_PORT,$ROOT_DIR,$PROXY_HOST,$PROXY_PORT'
