@@ -11,7 +11,7 @@
     <mat-drawer #drawer class="style-text fill-height" mode="over">
         <div *ngFor="let source of this.SRCS">
             <button mat-button (click)="this.setSource(source)">
-                {{chapter.name}}
+                {{source.name}}
             </button>
         </div>
     </mat-drawer>

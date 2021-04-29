@@ -1,0 +1,26 @@
+{
+  "0000": {
+    "src": "/assets/0000.html",
+    "name": "zero"
+  },
+  "0001" : {
+    "src": "/assets/0001.html",
+    "name": "one"
+  },
+  "0002": {
+    "src": "/assets/0002.html",
+    "name": "two"
+  },
+  "0003":{
+    "src": "/assets/0003.html",
+    "name": "three"
+  },
+  "0004":{
+    "src": "/assets/0004.html",
+    "name": "four"
+  },
+  "0005":{
+    "src": "/assets/0005.html",
+    "name": "five"
+  }
+}
