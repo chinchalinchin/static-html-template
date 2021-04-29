@@ -9,10 +9,13 @@ if [ "$1" == "--help" ] || [ "$1" == "--h" ] || [ "$1" == "-help" ] || [ "$1" ==
 then
     help "$SCRIPT_DES" $SCRIPT_NAME
     exit 0
-else
+elif [ $# -eq 0 ]
+then
+    log "Default Application Image Entrypoint" $SCRIPT_NAME
 
     log "Substituting Environment Variables In \e[3mnginx.conf\e[0m" $SCRIPT_NAME
-    envsubst '$NGINX_PORT,$PROXY_HOST,$PROXY_PORT' < /etc/nginx/nginx.conf | sponge /etc/nginx/nginx.conf
+    SUB_STR='$NGINX_PORT,$ROOT_DIR,$PROXY_HOST,$PROXY_PORT'
+    envsubst $SUB_STR < /etc/nginx/nginx.conf | sponge /etc/nginx/nginx.conf
 
     log "Logging \e[3mnginx\e[0m Configuration" $SCRIPT_NAME
     cat /etc/nginx/nginx.conf

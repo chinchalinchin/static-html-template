@@ -1,40 +1,40 @@
-FROM nginx:latest
-
-# VERSION CONTROLS
+# ANGULAR BUILD
+FROM node:latest as angular
 ENV NODE_VERSION=14
 ENV ANGULAR_VERSION=11
 
-# DEFAULT USER & GROUP
-RUN useradd -ms /bin/bash ccda && groupadd dx && usermod -a -G dx ccda
+# DEPENDENCIES
+RUN apt-get update -y && apt-get install -y curl moreutils && \ 
+    npm install -g @angular/cli@${ANGULAR_VERSION} \
+    && mkdir /home/build/ && mkdir /home/frontend/
 
-# OS DEPENDENCIES
-RUN apt-get update -y && apt-get install -y curl moreutils
-
-# FRONTEND DEPENDENCIES
-RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
-    && apt-get install -y nodejs
-RUN npm install -g @angular/cli@${ANGULAR_VERSION}
-
-# NGINX CONFIGURATION
-COPY /conf/nginx.conf /etc/nginx/nginx.conf
-COPY /conf/mime.types /etc/nginx/mime.types
-
-# FRONTEND CONFIGURATION
-RUN mkdir /home/build/ && mkdir /home/frontend/
 COPY /frontend/ /home/frontend/
 WORKDIR /home/frontend/
-RUN npm install
+
+# --prod: Configured to output /home/build/
 RUN ng build --prod --output-hashing none
 
+# PRODUCTION SERVER
+FROM nginx:latest
+
+# DEPENDENCIES && CONFIGURATION
+RUN apt-get update -y && apt-get install -y curl moreutils && \
+    useradd -ms /bin/bash chinchalinchin && groupadd admin && \
+    usermod -a -G admin chinchalinchin  && mkdir /home/build/ && \
+    mkdir /home/frontend/ && mkdir /home/scripts
+
+# COPY ARTIFACTS, CONFIGURATION AND SHELL SCRIPTS INTO IMAGE
+COPY --chown=chinchalinchin:admin --from=angular /home/build/ /home/build/
+COPY --chown=chinchalinchin:admin /conf/nginx.conf /etc/nginx/nginx.conf
+COPY --chown=chinchalinchin:admin /conf/mime.types /etc/nginx/mime.types
+COPY --chown=chinchalinchin:admin /scripts/bootstrap/ /home/scripts/bootsrap.sh
+COPY --chown=chinchalinchin:admin /scripts/util/logging.sh /home/scripts/util/logging.sh
+
 # PERMISSION CONFIGURATOIN
-RUN chown -R ccda:dx /home/frontend/ /home/build/ /etc/nginx/nginx.conf /var/cache/nginx/ /var/run/ /var/log/nginx/
-RUN chmod -R 770 /home/frontend/ 
-RUN chmod -R 770 /home/build/
+RUN chown -R chinchalinchin:admin /home/build/ /var/cache/nginx/ /var/run/ /var/log/nginx/ && \ 
+    chmod -R 770 /home/build/
 
 # ENTRYPOINT CONFIGURATION
 EXPOSE 8080
-RUN mkdir /home/scripts/
-COPY /scripts/bootstrap.sh /home/scripts/bootstrap.sh
-COPY /scripts/util/logging.sh /home/scripts/util/logging.sh
-USER ccda
-CMD [ "bash", "/home/scripts/bootstrap.sh" ]
+USER chinchalinchin
+ENTRYPOINT [ "bash", "/home/scripts/bootstrap.sh" ]
