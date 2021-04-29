@@ -16,51 +16,33 @@ else
     CONF_DIR="$PROJECT_DIR/conf"
     ENV_DIR="$PROJECT_DIR/env"
 
-    source "$SCRIPT_DIR/util/env-vars.sh" container
+    source "$SCRIPT_DIR/util/env-vars.sh"
 
         # PROXY to lower case
     if [ "${PROXY,,}" == "true" ]
     then
-        log "Configuring \e[3m$CONTAINER_NAME\e[0m With Upstream Server at \e[3m$PROXY_HOST:$PROXY_PORT\e[0m" $SCRIPT_NAME
+        log "Configuring \e[3m$CONTAINER_NAME\e[0m with upstream server at \e[3m$PROXY_HOST:$PROXY_PORT\e[0m" $SCRIPT_NAME
         cp "$CONF_DIR/nginx.proxy.conf" "$CONF_DIR/nginx.conf"
     else
-        log "Configuring \e[3m$CONTAINER_NAME\e[0m In Standalone Mode" $SCRIPT_NAME
+        log "Configuring \e[3m$CONTAINER_NAME\e[0m in standalone Mode" "$SCRIPT_NAME"
         cp "$CONF_DIR/nginx.standalone.conf" "$CONF_DIR/nginx.conf"
     fi
 
-    log 'Cleaning Docker' $SCRIPT_NAME
+    log 'Cleaning Docker' "$SCRIPT_NAME"
     clean_docker
 
-    log "Checking if \e[3m$CONTAINER_NAME\e[0m Container Is Currently Running" $SCRIPT_NAME
+    log "Checking if \e[3m$CONTAINER_NAME\e[0m container is currently running" "$SCRIPT_NAME"
     if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]
     then
-        log "Stopping \e[3m$CONTAINER_NAME\e[0m Container" $SCRIPT_NAME
-        docker container stop $CONTAINER_NAME
+        log "Stopping \e[3m$CONTAINER_NAME\e[0m container" "$SCRIPT_NAME"
+        docker container stop "$CONTAINER_NAME"
 
-        log "Removing \e[3m$CONTAINER_NAME\e[0m Container" $SCRIPT_NAME
-        docker rm $CONTAINER_NAME
+        log "Removing \e[3m$CONTAINER_NAME\e[0m container" "$SCRIPT_NAME"
+        docker rm "$CONTAINER_NAME"
     fi
 
-    log "Building \e[3m$IMAGE_NAME:$IMAGE_TAG\e[0m Image" $SCRIPT_NAME
-    docker build -t $IMAGE_NAME:$IMAGE_TAG $PROJECT_DIR
+    log "Building \e[3m$IMAGE_NAME:$IMAGE_TAG\e[0m Image" "$SCRIPT_NAME"
+    docker build -t "$IMAGE_NAME:$IMAGE_TAG" "$PROJECT_DIR"
 
-    for arg in "$@"
-    do
-        if [ "$arg" == "-d" ] || [ "$arg" == "--detached" ]
-        then
-            log "Starting Up Container \e[3m$CONTAINER_NAME\e[0m In Detached Mode" $SCRIPT_NAME
-            docker run --detached \
-                        --name $CONTAINER_NAME \
-                        --publish $NGINX_PORT:$NGINX_PORT \
-                        --env-file $ENV_DIR/container.env \
-                        $IMAGE_NAME:$IMAGE_TAG
-            exit 0
-        fi
-    done
-
-    log "Starting Up Container \e[3m$CONTAINER_NAME\e[0m In Foreground" $SCRIPT_NAME
-    docker run --name $CONTAINER_NAME \
-                --publish $NGINX_PORT:$NGINX_PORT \
-                --env-file $ENV_DIR/container.env \
-                $IMAGE_NAME:$IMAGE_TAG
+    log "Application image built. Invoke \[e3mrun-container\e[0m to start application server." "$SCRIPT_NAME"
 fi

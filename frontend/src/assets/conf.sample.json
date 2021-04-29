@@ -1,6 +1,6 @@
 {
-  "arbitrary_increment_key": {
-    "src": "/assets/file_name.html",
-    "name": "title of page on menu"
+  "0000": {
+    "src": "/assets/0000.html",
+    "name": "first item"
   }
 }

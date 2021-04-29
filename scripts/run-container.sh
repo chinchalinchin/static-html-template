@@ -17,19 +17,19 @@ else
     do
         if [ "$arg" == "-d" ] || [ "$arg" == "--detached" ]
         then
-            log "Starting Up Container \e[3m$CONTAINER_NAME\e[0m In Detached Mode" $SCRIPT_NAME
+            log "Starting Up Container \e[3m$CONTAINER_NAME\e[0m In Detached Mode" "$SCRIPT_NAME"
             docker run --detached \
-                        --name $CONTAINER_NAME \
-                        --publish $NGINX_PORT:$NGINX_PORT \
-                        --env-file $ENV_DIR/container.env \
-                        $IMAGE_NAME:$IMAGE_TAG
+                        --name "$CONTAINER_NAME" \
+                        --publish "$NGINX_PORT:$NGINX_PORT" \
+                        --env-file "$ENV_DIR/.env" \
+                        "$IMAGE_NAME:$IMAGE_TAG"
             exit 0
         fi
     done
 
-    log "Starting Up Container \e[3m$CONTAINER_NAME\e[0m In Foreground" $SCRIPT_NAME
-    docker run --name $CONTAINER_NAME \
-                --publish $NGINX_PORT:$NGINX_PORT \
-                --env-file $ENV_DIR/container.env \
-                $IMAGE_NAME:$IMAGE_TAG
+    log "Starting Up Container \e[3m$CONTAINER_NAME\e[0m In Foreground" "$SCRIPT_NAME"
+    docker run --name "$CONTAINER_NAME" \
+                --publish "$NGINX_PORT:$NGINX_PORT" \
+                --env-file "$ENV_DIR/.env" \
+                "$IMAGE_NAME:$IMAGE_TAG"
 fi

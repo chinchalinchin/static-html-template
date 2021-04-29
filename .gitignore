@@ -5,3 +5,4 @@
 /frontend/src/assets/*
 !/frontend/src/assets/.gitkeep
 !/frontend/src/assets/conf.sample.json
+!/frontend/src/assets/0000.html
