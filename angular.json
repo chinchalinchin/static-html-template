@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "the-long-goodbye": {
+    "static-html-template": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/the-long-goodbye",
+            "outputPath": "dist/static-html-template",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "the-long-goodbye:build"
+            "browserTarget": "static-html-template:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "the-long-goodbye:build:production"
+              "browserTarget": "static-html-template:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "the-long-goodbye:build"
+            "browserTarget": "static-html-template:build"
           }
         },
         "test": {
@@ -116,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "the-long-goodbye:serve"
+            "devServerTarget": "static-html-template:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "the-long-goodbye:serve:production"
+              "devServerTarget": "static-html-template:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "the-long-goodbye"
+  "defaultProject": "static-html-template"
 }
