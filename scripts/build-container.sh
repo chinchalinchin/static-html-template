@@ -14,7 +14,7 @@ then
 else
     PROJECT_DIR="$SCRIPT_DIR/../"
     CONF_DIR="$PROJECT_DIR/conf"
-    ENV_DIR="$ENV_DIR/env"
+    ENV_DIR="$PROJECT_DIR/env"
 
     source "$SCRIPT_DIR/util/env-vars.sh" container
 

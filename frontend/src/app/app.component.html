@@ -19,6 +19,9 @@
     <div *ngIf="src" class="fill-height fill-width">
         <iframe [src]="this.src | safe" width="100%" height="100%" 
                 frameBorder="0"></iframe>
+        <!--TODO: divider 90% down the page-->
+        <!--TODO: next source and previous source-->
+        <!--TODO: need booleans in app.component.ts to render enabled/disabled-->
     </div>
     <div *ngIf="!src" class="fill-height fill-width">
         <p>welcome message</p>

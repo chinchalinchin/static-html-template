@@ -27,8 +27,8 @@ RUN apt-get update -y && apt-get install -y curl moreutils && \
 # COPY ARTIFACTS, CONFIGURATION AND SHELL SCRIPTS INTO IMAGE
 COPY --chown=chinchalinchin:admin /conf/nginx.conf /etc/nginx/nginx.conf
 COPY --chown=chinchalinchin:admin /conf/mime.types /etc/nginx/mime.types
-COPY --chown=chinchalinchin:admin /scripts/entrypoint.sh /home/scripts/entrypoint.sh
-COPY --chown=chinchalinchin:admin /scripts/util/logging.sh /home/scripts/util/logging.sh
+COPY --chown=chinchalinchin:admin /scripts/docker/entrypoint.sh /home/scripts/entrypoint.sh
+COPY --chown=chinchalinchin:admin /scripts/util/sys-util.sh /home/scripts/util/sys-util.sh
 COPY --from=angular --chown=chinchalinchin:admin /home/build/ /home/build/
 
 
