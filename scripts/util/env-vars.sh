@@ -1,5 +1,5 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-source "$SCRIPT_DIR/logging.sh"
+source "$SCRIPT_DIR/sys-util.sh"
 
 # ARGUMENT: whatever environment's env vars you initializing. Must have a 
 # corresponding .env file in the /env/ directory. 

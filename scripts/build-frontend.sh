@@ -2,7 +2,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 SCRIPT_NAME='build-frontend'
 nl=$'\n'
 SCRIPT_DES=""
-source "$SCRIPT_DIR/util/logging.sh"
+source "$SCRIPT_DIR/util/sys-util.sh"
 
 
 if [ "$1" == "--help" ] || [ "$1" == "--h" ] || [ "$1" == "-help" ] || [ "$1" == "-h" ]
