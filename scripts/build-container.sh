@@ -12,8 +12,8 @@ then
     help "$SCRIPT_DES" $SCRIPT_NAME
     exit 0
 else
-    ROOT_DIR="$SCRIPT_DIR/../"
-    CONF_DIR="$ROOT_DIR/conf"
+    PROJECT_DIR="$SCRIPT_DIR/../"
+    CONF_DIR="$PROJECT_DIR/conf"
     ENV_DIR="$ENV_DIR/env"
 
     source "$SCRIPT_DIR/util/env-vars.sh" container
@@ -31,7 +31,7 @@ else
     log 'Cleaning Docker' $SCRIPT_NAME
     clean_docker
 
-    log "Checking If \e[3m$CONTAINER_NAME\e[0m Container Is Currently Running" $SCRIPT_NAME
+    log "Checking if \e[3m$CONTAINER_NAME\e[0m Container Is Currently Running" $SCRIPT_NAME
     if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]
     then
         log "Stopping \e[3m$CONTAINER_NAME\e[0m Container" $SCRIPT_NAME
@@ -42,25 +42,25 @@ else
     fi
 
     log "Building \e[3m$IMAGE_NAME:$IMAGE_TAG\e[0m Image" $SCRIPT_NAME
-    docker build -t $IMAGE_NAME:$IMAGE_TAG $ROOT_DIR
+    docker build -t $IMAGE_NAME:$IMAGE_TAG $PROJECT_DIR
 
     for arg in "$@"
     do
         if [ "$arg" == "-d" ] || [ "$arg" == "--detached" ]
         then
             log "Starting Up Container \e[3m$CONTAINER_NAME\e[0m In Detached Mode" $SCRIPT_NAME
-            docker run --detached \ 
-                        --name $CONTAINER_NAME \ 
-                        --publish $NGINX_PORT:$NGINX_PORT \ 
-                        --env-file $ENV_DIR/container.env \ 
+            docker run --detached \
+                        --name $CONTAINER_NAME \
+                        --publish $NGINX_PORT:$NGINX_PORT \
+                        --env-file $ENV_DIR/container.env \
                         $IMAGE_NAME:$IMAGE_TAG
             exit 0
         fi
     done
 
     log "Starting Up Container \e[3m$CONTAINER_NAME\e[0m In Foreground" $SCRIPT_NAME
-    docker run --name $CONTAINER_NAME \ 
-                --publish $NGINX_PORT:$NGINX_PORT \ 
-                --env-file $ENV_DIR/container.env \ 
+    docker run --name $CONTAINER_NAME \
+                --publish $NGINX_PORT:$NGINX_PORT \
+                --env-file $ENV_DIR/container.env \
                 $IMAGE_NAME:$IMAGE_TAG
 fi

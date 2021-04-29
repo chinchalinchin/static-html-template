@@ -2,15 +2,23 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatButtonModule} from '@angular/material/button';
+
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    MatSidenavModule,
+    MatButtonModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 # ANGULAR BUILD
-FROM node:latest as angular
+FROM node:latest AS angular
+
 ENV NODE_VERSION=14
 ENV ANGULAR_VERSION=11
 
@@ -12,7 +13,7 @@ COPY /frontend/ /home/frontend/
 WORKDIR /home/frontend/
 
 # --prod: Configured to output /home/build/
-RUN ng build --prod --output-hashing none
+RUN npm install && ng build --prod --output-hashing none
 
 # PRODUCTION SERVER
 FROM nginx:latest
@@ -24,11 +25,12 @@ RUN apt-get update -y && apt-get install -y curl moreutils && \
     mkdir /home/frontend/ && mkdir /home/scripts
 
 # COPY ARTIFACTS, CONFIGURATION AND SHELL SCRIPTS INTO IMAGE
-COPY --chown=chinchalinchin:admin --from=angular /home/build/ /home/build/
 COPY --chown=chinchalinchin:admin /conf/nginx.conf /etc/nginx/nginx.conf
 COPY --chown=chinchalinchin:admin /conf/mime.types /etc/nginx/mime.types
 COPY --chown=chinchalinchin:admin /scripts/entrypoint.sh /home/scripts/entrypoint.sh
 COPY --chown=chinchalinchin:admin /scripts/util/logging.sh /home/scripts/util/logging.sh
+COPY --from=angular --chown=chinchalinchin:admin /home/build/ /home/build/
+
 
 # PERMISSION CONFIGURATOIN
 RUN chown -R chinchalinchin:admin /home/build/ /var/cache/nginx/ /var/run/ /var/log/nginx/ && \ 
