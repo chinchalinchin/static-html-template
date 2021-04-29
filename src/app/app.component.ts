@@ -3,28 +3,28 @@ import { MatDrawer } from '@angular/material/sidenav/drawer';
 
 const SRC = [
   {
-    src: '/assets/00_thedream.html',
-    name: 'the dream'
+    src: '/assets/00.html',
+    name: 'zero'
   },
   {
-    src: '/assets/01_monday_10_21.html',
-    name: 'monday, october 21'
+    src: '/assets/01.html',
+    name: 'one'
   },
   {
-    src: '/assets/02_tuesday_10_22.html',
-    name: 'tuesday, october 22'
+    src: '/assets/02.html',
+    name: 'two'
   },
   {
-    src: '/assets/03_wednesday_10_23.html',
-    name: 'wednesday, october 23'
+    src: '/assets/03.html',
+    name: 'three'
   },
   {
-    src: '/assets/04_thursday_10_24.html',
-    name: 'thursday, october 24'
+    src: '/assets/04.html',
+    name: 'four'
   },
   {
-    src: '/assets/05_friday_10_25.html',
-    name: 'friday, october 25'
+    src: '/assets/05.html',
+    name: 'five'
   }
 ]
 
@@ -33,15 +33,15 @@ const SRC = [
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  public title = 'the-long-goodbye';
+  public title = 'static-html-template';
   public src : any = null;
   public SRCS : any = SRC
 
   @ViewChild("drawer")
   public drawer : MatDrawer | undefined;
 
-  public setChapter(chapter: any) : void {
-    this.src=chapter.src; 
+  public setSource(source: any) : void {
+    this.src=source.src; 
     if(this.drawer){ this.drawer.close(); }
   }
 }

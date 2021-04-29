@@ -1,21 +1,24 @@
+<h1 class="splash-area">{{title}}</h1>
+
+<div class="splash-area">
+    <a class="link" (click)="drawer.toggle()">
+        table of contents
+    </a>
+</div>
+
 <mat-drawer-container class="style-text fill-height fill-width">
 
-    <mat-drawer #drawer class="style-text sidenav" mode="side">
-        <div *ngFor="let chapter of this.SRCS">
-            <button mat-button (click)="this.setChapter(chapter)">
+    <mat-drawer #drawer class="style-text fill-height" mode="over">
+        <div *ngFor="let source of this.SRCS">
+            <button mat-button (click)="this.setSource(source)">
                 {{chapter.name}}
             </button>
         </div>
     </mat-drawer>
-    
-    <div class="splash-area">
-        <a class="link" (click)="drawer.toggle()">
-            table of contents
-        </a>
-    </div>
 
-    <div *ngIf="src" class="text-area" >
-        <iframe [src]="this.src | safe" class="fill-width fill-height"></iframe>
+    <div *ngIf="src" class="fill-height fill-width">
+        <iframe [src]="this.src | safe" width="100%" height="100%" 
+                frameBorder="0"></iframe>
     </div>
 
 </mat-drawer-container>
