@@ -34,8 +34,8 @@ By default,
 
 # Notes
 
-1. If you get the following error when startig up the container `$'\r': command not found`, this is due to the line endings in the either the <i>/scripts/bootstrap.sh</i> or <i>/scripts/util/logging.sh</i> shell script. Use the <i>/scripts/util/unixify.sh</i> shell script to traverse the project directory and change all line endings to Unix-style, 
+1. If you get the following error when startig up the container `$'\r': command not found`, this is due to the line endings in the either the <i>/scripts/bootstrap.sh</i> or <i>/scripts/util/logging.sh</i> shell script. Use the <b>unixify</b> function in the <i>/scripts/util/sys-util.sh</i> shell script to traverse the project directory and change all line endings to Unix-style, 
 
-> ./scripts/util/unixify.sh "$(pwd)"
+> ./scripts/util/sys-util.sh unixify "$(pwd)"
 
 I recommend deleting the <i>/frontend/node_modules/</i> directory before doing this, as the traversal will take some time if <i>node_modules</i> is included in its search path.
