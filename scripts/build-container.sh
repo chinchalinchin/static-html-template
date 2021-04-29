@@ -1,8 +1,9 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 SCRIPT_NAME='build-container'
 nl=$'\n'
-SCRIPT_DES="Options: \n \n     --help/-h : Print This Help Message ${nl}${nl}\
-     --detached/-d : Start Container In Background"
+tab='     '
+SCRIPT_DES="Options: ${nl}${tab}--help/-h : Print This Help Message ${nl}\
+${tab}--detached/-d : Start Container In Background"
 source "$SCRIPT_DIR/util/sys-util.sh"
 
 
