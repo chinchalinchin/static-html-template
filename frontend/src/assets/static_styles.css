@@ -1,0 +1,22 @@
+h2{
+    text-align: left;
+    font-size: large;
+}
+p {
+    background-color:rgb(41, 41, 41); 
+    color:antiquewhite;
+}
+code {
+    text-align: center;
+    color:wheat;
+}
+a{ color:slateblue; }
+.text-margin{ margin-left: 10%; }
+.box-margin{
+    margin-top:1%;
+    margin-right:10%;
+    margin-left:10%;
+    margin-bottom:5%;
+}
+.indent{ text-indent:5%; }
+.center{ text-align:center; }

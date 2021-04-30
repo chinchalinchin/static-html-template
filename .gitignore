@@ -4,5 +4,6 @@
 !/build/.gitkeep
 /frontend/src/assets/*
 !/frontend/src/assets/.gitkeep
+!/frontend/src/assets/static_styles.css
 !/frontend/src/assets/conf.sample.json
 !/frontend/src/assets/0000.html
