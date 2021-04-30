@@ -35,8 +35,11 @@
                 frameBorder="0"></iframe>
     </div>
     <div *ngIf="!src" class="shrink-height">
-        <div matRipple class="start-button mat-elevation-z4" 
-                [matRippleRadius]="100" (click)="begin()">don't click</div>
+
+        <div class="start-button">
+        <button mat-fab matRipple class="shrink mat-elevation-z4" color="primary"
+                [matRippleUnbounded]="true" [matRippleCentered]="true" 
+                (click)="begin()">don't click</button></div>
     </div>
 </mat-drawer-container>
 
