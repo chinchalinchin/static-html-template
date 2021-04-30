@@ -1,13 +1,15 @@
-# Static HTML Angular App
+# Portfolio
 
-An nginx container configured to serve an Angular 11 app that renders an arbitrary number of static HTML documents in the <i>/frontend/src/assets/</i> and adds navigable links to each document in a collapsible <b>Angular Material</b> drawer menu based on the name given to the document in the <i>/frontend/src/assets/conf.json</i> configuration file. 
+An nginx container configured to serve an Angular 11 app that renders an arbitrary number of static HTML documents in the <i>/frontend/src/assets/</i> directory, embeds them within a navigable interface and adds links to each document in a collapsible <b>Angular Material</b> drawer menu based on the name given to the document in the <i>/frontend/src/assets/conf.json</i> configuration file. 
 
 ## Quickstart
 
 ### Prerequisites
 
-- [NodeJS]()
-- [Docker]()
+- [NodeJS](https://nodejs.org/en/download/)
+- [Docker](https://docs.docker.com/get-docker/)
+
+If you are on Windows, you will need a Unix-style shell like [Git Bash](https://git-scm.com/download/win) or [Cygwin](https://www.cygwin.com/).
 
 ### Local
 
@@ -19,14 +21,20 @@ Install the <i>node_modules</i> dependencies,
 
 1. Development Mode
 
+From the <i>/frontend/</i> directory,
+
 `ng serve`
 
 2. Production Mode
 
-Build Angular webpacks, start/reload nginx with <i>/conf/nginx.conf</i>
+From the <i>/frontend/</i> directory, build the Angular webpacks,
 
+`cd /frontend/`<br>
 `ng build --prod --output-hashing none`<br>
-`nginx -c ./conf/nginx.conf -s start/reload`
+
+By default, these webpacks are output into the <i>/build/</i> directory. Configure <b>$NGINX_PORT</b> and <b>$ROOT_DIR</b> in <i>/conf/nginx.conf</i>. <b>$ROOT_DIR</b> should be set equal to the directory where the Angular webpacks were output, i.e. <i>/build/</i>. Once <b>nginx</b> is configured, start/reload the server,
+
+`nginx -c ./conf/nginx.conf -s start/reload`<br>
 
 ### Container
 
@@ -42,7 +50,7 @@ Copy in the static HTML documents you want rendered and add them to the <i>conf.
 
 Once the application image context is configured (i.e. what you just did), invoke the <i>build-container.sh</i> shell script to build a Docker image. From the root directory,
 
-> ./scripts/build-container.sh
+`./scripts/build-container.sh`
 
 This will build a multi-stage Docker image, perform an Angular production build, copy the artifacts into an <b>nginx</b> container and then bring up the <b>nginx</b> server on <i>localhost:8080</i>. You can adjust the port the server runs on by changing the <b>NGINX_PORT</b> environment variable in the <i>.env</i> file.
 
@@ -56,7 +64,6 @@ If <b>PROXY</b> is set to <i>true</i>, the <i>/conf/nginx.proxy.conf/</i> is use
 
 In the <i>/frontend/src/assets/</i> folder you will find the static html that is rendered within the Angular app's interface. There is a <i>conf.json</i> in this directory the Angular app uses to configure the static html navigation and appearance on the drawer menu. You can add or remove static html templates from this folder; if you do so, make sure to adjust the <i>config.json</i> accordingly. 
 
-By default, 
 
 ## Documentation
 
