@@ -7,7 +7,7 @@ import *  as SRC from '../assets/conf.json';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  public title = 'static-html-template';
+  public title = 'chinchalinchin web industries';
   public src : any = null;
   public SRCS : any = []
 

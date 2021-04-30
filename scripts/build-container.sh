@@ -24,7 +24,7 @@ else
         log "Configuring \e[3m$CONTAINER_NAME\e[0m with upstream server at \e[3m$PROXY_HOST:$PROXY_PORT\e[0m" $SCRIPT_NAME
         cp "$CONF_DIR/nginx.proxy.conf" "$CONF_DIR/nginx.conf"
     else
-        log "Configuring \e[3m$CONTAINER_NAME\e[0m in standalone Mode" "$SCRIPT_NAME"
+        log "Configuring \e[3m$CONTAINER_NAME\e[0m in standalone mode" "$SCRIPT_NAME"
         cp "$CONF_DIR/nginx.standalone.conf" "$CONF_DIR/nginx.conf"
     fi
 
@@ -44,5 +44,5 @@ else
     log "Building \e[3m$IMAGE_NAME:$IMAGE_TAG\e[0m Image" "$SCRIPT_NAME"
     docker build -t "$IMAGE_NAME:$IMAGE_TAG" "$PROJECT_DIR"
 
-    log "Application image built. Invoke \[e3mrun-container\e[0m to start application server." "$SCRIPT_NAME"
+    log "Application image built. Invoke \e[3mrun-container\e[0m to start application server." "$SCRIPT_NAME"
 fi

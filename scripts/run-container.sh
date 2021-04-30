@@ -13,6 +13,12 @@ then
     help "$SCRIPT_DES" $SCRIPT_NAME
     exit 0
 else
+    PROJECT_DIR="$SCRIPT_DIR/../"
+    CONF_DIR="$PROJECT_DIR/conf"
+    ENV_DIR="$PROJECT_DIR/env"
+
+    source "$SCRIPT_DIR/util/env-vars.sh"
+
     for arg in "$@"
     do
         if [ "$arg" == "-d" ] || [ "$arg" == "--detached" ]

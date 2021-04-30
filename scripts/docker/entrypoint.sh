@@ -22,6 +22,6 @@ then
     echo "${nl}"
 
     log "Starting \e[3mnginx\e[0m Server..." $SCRIPT_NAME
-    log "Server Started. Vist \e[3mlocalhost:$NGINX_PORT\e[0m to Access \e[7mnginx-angular-starter\e[0m Splash Page." $SCRIPT_NAME
+    log "Server Started. Vist \e[3mlocalhost:$NGINX_PORT\e[0m to Access \e[7m$CONTAINER_NAME\e[0m Splash Page." $SCRIPT_NAME
     nginx -g "daemon off;"
 fi
