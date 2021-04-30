@@ -1,13 +1,24 @@
-<h1 class="splash-area">{{title}}</h1>
-
-<div class="splash-area">
-    <a class="link" (click)="drawer.toggle()">
-        about
-    </a>
-</div>
+<h1 class="title-area center">{{title}}</h1>
+length: {{this.SRCS.length}}
+<mat-grid-list cols="5" rowHeight="100px">
+    <mat-grid-tile colspan="1">
+        <button mat-fab color="primary" (click)="this.setSource(this.previousSrc)"
+            [disabled]="!this.previousSrc">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3">
+        <a class="link" (click)="drawer.toggle()">contents</a>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1">
+        <button mat-fab color="primary" (click)="this.setSource(this.nextSrc)"
+            [disabled]="!this.nextSrc">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+    </mat-grid-tile>
+</mat-grid-list>
 
 <mat-drawer-container class="style-text fill-height fill-width">
-
     <mat-drawer #drawer class="style-text fill-height" mode="over">
         <div *ngFor="let source of this.SRCS">
             <button mat-button (click)="this.setSource(source)">
@@ -23,8 +34,8 @@
         <!--TODO: next source and previous source-->
         <!--TODO: need booleans in app.component.ts to render enabled/disabled-->
     </div>
-    <div *ngIf="!src" class="fill-height fill-width">
+    <div *ngIf="!src" class="fill-height shrink-width">
         <p>welcome message</p>
     </div>
-
 </mat-drawer-container>
+

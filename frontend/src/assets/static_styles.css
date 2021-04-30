@@ -5,6 +5,7 @@ h2{
 }
 p {
     text-indent: 50px;
+    margin: 50px;
     background-color:rgb(41, 41, 41); 
     color:antiquewhite;
 }

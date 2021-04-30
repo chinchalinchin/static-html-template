@@ -12,16 +12,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .fill-width { width: 100%; }
 .fill-height { height: 100%; }
+.fill{ width: 100%; height: 100%; }
+.shrink-width{ width: 75%; }
+.shrink-height{ width: 75%; }
+.shrink { width: 75%; height: 100% }
 .link{ 
     text-decoration: underline; 
     cursor: pointer; 
 }
-.splash-area{ 
+.title-area{ 
     display: flex; 
-    text-align: top; 
-    justify-content: center; 
+    text-align: top;
+    justify-content: center;
+ 
 }
-
+.right{
+    float:right;
+}
+.left{
+    float:left;
+}
 .no-scroll{
     overflow: hidden
 }
