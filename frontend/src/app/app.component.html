@@ -1,7 +1,10 @@
-<h1 class="title-area center">{{title}}</h1>
+<div class="text-center">
+    <h1>{{title}}</h1><br>
+    <a *ngIf="src" class="link" (click)="drawer.toggle()">contents</a>
+</div>
 
 <mat-grid-list cols="5" rowHeight="4:1">
-    <mat-grid-tile colspan="1" rowspan="2">
+    <mat-grid-tile colspan="1" rowspan="1">
         <button mat-fab color="primary" (click)="this.setSource(this.previousSrc)"
             [disabled]="!this.previousSrc">
             <mat-icon>keyboard_arrow_left</mat-icon>
@@ -10,14 +13,11 @@
     <mat-grid-tile colspan="3" rowspan="1">
         <mat-icon *ngIf="this.src" class="hover" (click)="this.setSource(null)">home</mat-icon>
     </mat-grid-tile>
-    <mat-grid-tile colspan="1" rowspan="2">
+    <mat-grid-tile colspan="1" rowspan="1">
         <button mat-fab color="primary" (click)="this.setSource(this.nextSrc)"
             [disabled]="!this.nextSrc">
             <mat-icon>keyboard_arrow_right</mat-icon>
         </button>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="3" rowspan="1">
-        <a class="link" (click)="drawer.toggle()">contents</a>
     </mat-grid-tile>
 </mat-grid-list>
 
@@ -34,8 +34,9 @@
         <iframe [src]="this.src | safe" width="100%" height="100%" 
                 frameBorder="0"></iframe>
     </div>
-    <div *ngIf="!src" class="border shrink-height">
-        <p class="text-center">welcome!</p>
+    <div *ngIf="!src" class="shrink-height">
+        <div matRipple class="start-button mat-elevation-z4" 
+                [matRippleRadius]="100" (click)="begin()">don't click</div>
     </div>
 </mat-drawer-container>
 

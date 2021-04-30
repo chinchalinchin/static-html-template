@@ -7,20 +7,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="static_styles.css" rel="stylesheet">
 </head>
-<body>
-    <p>I make web applications, all kinds of web applications, such as the one you are now browsing. If you don't believe me, you can find the source code for this web application on <b>GitHub</b>,</p>
+<body><div class="box-margin">
+    <div class="indent"><p>Well, since you had to go ahead and click that button, I guess I might as well take this opportunity to tell you a bit about myself. As it happens, I make web applications, such as the one you are now browsing. If you don't believe me, you can find the source code for this one on my <b>GitHub</b> profile,</p></div>
 
-    <a href="https://github.com/chinchalinchin/portfolio">chinchalinchin/portfolio</a>
+    <div class="text-margin"><a href="https://github.com/chinchalinchin/portfolio" rel="noreferrer noopener" target="_blank">chinchalinchin/portfolio GitHub</a></div>
 
-    <p>Or, if you prefer to spin up your own container of this web application and give it a test run, an image can be found on DockerHub</p>,
+    <p>You can find more documentation about the nuts and bolts of this site on my <b>GitHub</b> and how to build it from source. A Docker image of this web application is also available; If you prefer to spin up your own container of this site and give it a test run, an image can be found on my <b>DockerHub</b> repository,</p>
     
-    <a href="https://hub.docker.com/repository/docker/chinchalinchin/portfolio">chinchalinchin/portfolio</a>
+    <div class="text-margin"><a href="https://hub.docker.com/repository/docker/chinchalinchin/portfolio" rel="noreferrer noopener" target="_blank">chinchalinchin/portfolio DockerHUb</a></div>
 
-    <p>Pull the image from DockerHub,</p>
+    <p>To do so, pull the image from DockerHub,</p>
 
-    <code>docker pull chinchalinchin/portfolio:latest</code>
+    <div class="text-margin"><code>docker pull chinchalinchin/portfolio:latest</code></div>
 
     <p>And then publish it on the port of your choice</p>
 
-    <code>docker run --publish 8080:8080 chinchalinchin/portfolio:latest</code>
-</body>
+    <div class="text-margin"><code>docker run --publish 8080:8080 chinchalinchin/portfolio:latest</code></div>
+
+    <p>After that, you should be able to access this site on <i>localhost:8080</i> from a browser of your choice.</p>
+</div></body>

@@ -4,6 +4,32 @@ An nginx container configured to serve an Angular 11 app that renders an arbitra
 
 ## Quickstart
 
+### Prerequisites
+
+- [NodeJS]()
+- [Docker]()
+
+### Local
+
+Install the <i>node_modules</i> dependencies,
+
+`cd /frontend/`<br>
+`npm install -g @angular/cli`<br>
+`npm install`
+
+1. Development Mode
+
+`ng serve`
+
+2. Production Mode
+
+Build Angular webpacks, start/reload nginx with <i>/conf/nginx.conf</i>
+
+`ng build --prod --output-hashing none`<br>
+`nginx -c ./conf/nginx.conf -s start/reload`
+
+### Container
+
 Copy <i>.sample.env</i> into <i>.env</i>
 
 `cp .sample.env .env`

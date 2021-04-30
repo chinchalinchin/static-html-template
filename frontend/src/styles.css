@@ -23,11 +23,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .hover{
     cursor: pointer;
 }
-.title-area{ 
-    display: flex; 
-    text-align: top;
-    justify-content: center;
- 
+.start-button{
+    background-color:rgb(80, 80, 80); 
+    width: 250px;
+    height: 250px;
+    line-height:250px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 2px 2px black;
+
 }
 .border{
     border-style: double;

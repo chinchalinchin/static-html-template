@@ -27,7 +27,10 @@ export class AppComponent {
       let index=src_keys.indexOf(el);
       this.SRCS.push(src_values[index]);
     }
-    this.setSource(null);
+  }
+
+  public begin(): void{
+    this.setSource(this.SRCS[0]);
   }
 
   public setSource(source: any) : void {
@@ -40,7 +43,7 @@ export class AppComponent {
   public setNavigationSources(source: any): void {
     if(!source){
       this.previousSrc = null;
-      this.nextSrc = this.SRCS[1];
+      this.nextSrc = null;
     }
     else{
       let current_index : number = this.SRCS.indexOf(source)

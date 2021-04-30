@@ -6,13 +6,17 @@ p {
     background-color:rgb(41, 41, 41); 
     color:antiquewhite;
 }
-.star {
+code {
     text-align: center;
-    color: antiquewhite;
+    color:wheat;
 }
-.margin{
-    margin: 50px;
+a{ color:slateblue; }
+.text-margin{ margin-left: 10%; }
+.box-margin{
+    margin-top:1%;
+    margin-right:10%;
+    margin-left:10%;
+    margin-bottom:5%;
 }
-.indent{
-    text-indent:50px;
-}
+.indent{ text-indent:5%; }
+.center{ text-align:center; }

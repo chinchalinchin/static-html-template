@@ -8,6 +8,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatRippleModule } from '@angular/material/core';
+
 import {MatIconModule} from '@angular/material/icon';
 
 
@@ -25,6 +27,7 @@ import { SafePipe } from './pipes/safe.pipe';
     MatDividerModule,
     MatGridListModule,
     MatIconModule,
+    MatRippleModule,
     NoopAnimationsModule
   ],
   providers: [],
