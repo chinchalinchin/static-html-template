@@ -14,8 +14,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .fill-height { height: 100%; }
 .fill{ width: 100%; height: 100%; }
 .shrink-width{ width: 75%; }
-.shrink-height{ width: 75%; }
-.shrink { width: 75%; height: 100% }
+.shrink-height{ height: 75%; }
+.shrink { width: 75%; height: 75% }
 .link{ 
     text-decoration: underline; 
     cursor: pointer; 
@@ -26,11 +26,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     justify-content: center;
  
 }
-.right{
-    float:right;
+.border{
+    border-style: double;
 }
-.left{
-    float:left;
+.text-center{
+    text-align: center;
 }
 .no-scroll{
     overflow: hidden

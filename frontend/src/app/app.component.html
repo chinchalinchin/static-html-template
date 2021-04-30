@@ -1,6 +1,6 @@
 <h1 class="title-area center">{{title}}</h1>
-length: {{this.SRCS.length}}
-<mat-grid-list cols="5" rowHeight="100px">
+
+<mat-grid-list cols="5" rowHeight="3:1">
     <mat-grid-tile colspan="1">
         <button mat-fab color="primary" (click)="this.setSource(this.previousSrc)"
             [disabled]="!this.previousSrc">
@@ -18,7 +18,7 @@ length: {{this.SRCS.length}}
     </mat-grid-tile>
 </mat-grid-list>
 
-<mat-drawer-container class="style-text fill-height fill-width">
+<mat-drawer-container class="style-text shrink-height">
     <mat-drawer #drawer class="style-text fill-height" mode="over">
         <div *ngFor="let source of this.SRCS">
             <button mat-button (click)="this.setSource(source)">
@@ -27,15 +27,12 @@ length: {{this.SRCS.length}}
         </div>
     </mat-drawer>
 
-    <div *ngIf="src" class="fill-height fill-width">
+    <div *ngIf="src" class="border shrink-height">
         <iframe [src]="this.src | safe" width="100%" height="100%" 
                 frameBorder="0"></iframe>
-        <!--TODO: divider 90% down the page-->
-        <!--TODO: next source and previous source-->
-        <!--TODO: need booleans in app.component.ts to render enabled/disabled-->
     </div>
-    <div *ngIf="!src" class="fill-height shrink-width">
-        <p>welcome message</p>
+    <div *ngIf="!src" class="border shrink-height">
+        <p class="text-center">welcome!</p>
     </div>
 </mat-drawer-container>
 
