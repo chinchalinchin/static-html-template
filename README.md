@@ -32,6 +32,10 @@ In the <i>/frontend/src/assets/</i> folder you will find the static html that is
 
 By default, 
 
+## Documentation
+
+This app is its own documentation. Start it up and visit <i>localhost:8080</i> to give it a whirl.
+
 # Notes
 
 1. If you get the following error when startig up the container `$'\r': command not found`, this is due to the line endings in the either the <i>/scripts/bootstrap.sh</i> or <i>/scripts/util/logging.sh</i> shell script. Use the <b>unixify</b> function in the <i>/scripts/util/sys-util.sh</i> shell script to traverse the project directory and change all line endings to Unix-style, 

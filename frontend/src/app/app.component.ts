@@ -18,7 +18,6 @@ export class AppComponent {
 
   public ngOnInit(){
     this.initSrcs();
-    this.nextSrc = this.SRCS[1];
   }
 
   public initSrcs(){
@@ -28,27 +27,36 @@ export class AppComponent {
       let index=src_keys.indexOf(el);
       this.SRCS.push(src_values[index]);
     }
+    this.setSource(null);
   }
+
   public setSource(source: any) : void {
-    this.src=source.src; 
+    if(source){ this.src=source.src; }
+    else { this.src = null; } 
     this.setNavigationSources(source);
     if(this.drawer){ this.drawer.close(); }
   }
 
   public setNavigationSources(source: any): void {
-    let current_index : number = this.SRCS.indexOf(source)
-    let length : number = this.SRCS.length;
-    if (current_index == length -1){
-      this.nextSrc = null;
-      this.previousSrc = this.SRCS[length-2]
-    }
-    else if(current_index == 0){
-      this.nextSrc = this.SRCS[1]
+    if(!source){
       this.previousSrc = null;
+      this.nextSrc = this.SRCS[1];
     }
     else{
-      this.nextSrc = this.SRCS[current_index+1];
-      this.previousSrc = this.SRCS[current_index-1];
+      let current_index : number = this.SRCS.indexOf(source)
+      let length : number = this.SRCS.length;
+      if (current_index == length -1){
+        this.nextSrc = null;
+        this.previousSrc = this.SRCS[length-2]
+      }
+      else if(current_index == 0){
+        this.nextSrc = this.SRCS[1]
+        this.previousSrc = null;
+      }
+      else{
+        this.nextSrc = this.SRCS[current_index+1];
+        this.previousSrc = this.SRCS[current_index-1];
+      }
     }
   }
 }

@@ -13,6 +13,12 @@ elif [ $# -eq 0 ]
 then
     log "Default Application Entrypoint" $SCRIPT_NAME
 
+    # pull from environment or set default and pray
+    NGINX_PORT="${NGINX_PORT:=8080}"
+    ROOT_DIR="${ROOT_DIR:=/home/build/}"
+    PROXY_PORT="${PROXY_PORT:=8000}"
+    PROXY_HOST="${PROXY_HOST:=proxy}"
+
     log "Substituting Environment Variables In \e[3mnginx.conf\e[0m" $SCRIPT_NAME
     SUB_STR='$NGINX_PORT,$ROOT_DIR,$PROXY_HOST,$PROXY_PORT'
     envsubst $SUB_STR < /etc/nginx/nginx.conf | sponge /etc/nginx/nginx.conf

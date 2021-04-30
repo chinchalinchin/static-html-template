@@ -20,6 +20,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     text-decoration: underline; 
     cursor: pointer; 
 }
+.hover{
+    cursor: pointer;
+}
 .title-area{ 
     display: flex; 
     text-align: top;

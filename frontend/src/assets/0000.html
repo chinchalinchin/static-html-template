@@ -8,5 +8,19 @@
     <link href="static_styles.css" rel="stylesheet">
 </head>
 <body>
-    <p>here is a test</p>
+    <p>I make web applications, all kinds of web applications, such as the one you are now browsing. If you don't believe me, you can find the source code for this web application on <b>GitHub</b>,</p>
+
+    <a href="https://github.com/chinchalinchin/portfolio">chinchalinchin/portfolio</a>
+
+    <p>Or, if you prefer to spin up your own container of this web application and give it a test run, an image can be found on DockerHub</p>,
+    
+    <a href="https://hub.docker.com/repository/docker/chinchalinchin/portfolio">chinchalinchin/portfolio</a>
+
+    <p>Pull the image from DockerHub,</p>
+
+    <code>docker pull chinchalinchin/portfolio:latest</code>
+
+    <p>And then publish it on the port of your choice</p>
+
+    <code>docker run --publish 8080:8080 chinchalinchin/portfolio:latest</code>
 </body>
