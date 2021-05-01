@@ -1,0 +1,22 @@
+{
+  "0000": {
+    "src": "/assets/0000.html",
+    "name": "introduction"
+  },
+  "0001" : {
+    "src": "/assets/0001.html",
+    "name": "education"
+  },
+  "0002": {
+    "src": "/assets/0002.html",
+    "name": "certifications"
+  },
+  "0003":{
+    "src": "/assets/0003.html",
+    "name": "experience"
+  },
+  "0004":{
+    "src": "/assets/0004.html",
+    "name": "contact"
+  }
+}
