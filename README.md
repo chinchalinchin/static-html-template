@@ -1,6 +1,6 @@
 # Portfolio
 
-An nginx container configured to serve an Angular 11 app that renders an arbitrary number of static HTML documents in the <i>/frontend/src/assets/</i> directory, embeds them within a navigable interface and adds links to each document in a collapsible <b>Angular Material</b> drawer menu based on the name given to the document in the <i>/frontend/src/assets/conf.json</i> configuration file. 
+This is an nginx server configured to serve an Angular 11 app that renders an arbitrary number of static HTML documents in the <i>/frontend/src/assets/</i> directory, embeds them within a navigable interface and adds links to each document in a collapsible <b>Angular Material</b> drawer menu based on the name given to the document in the <i>/frontend/src/assets/conf.json</i> configuration file. 
 
 ## Quickstart
 

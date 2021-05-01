@@ -6,10 +6,8 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.style-text{
-    background-color:rgb(41, 41, 41); 
-    color:antiquewhite;
-}
+a{ color:slateblue; }
+/** SIZING */
 .fill-width { width: 100% !important; }
 .fill-height { height: 100% !important; }
 .fill{ width: 100% !important; height: 100% !important; }
@@ -19,12 +17,28 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .quarter-width { width: 25% !important; }
 .quarter-height { height: 25% !important; }
 .quarter{ width: 25% !important; height: 25% !important; }
+
+/**FUNCTIONALITY*/ 
+.hover{ cursor: pointer; }
+.no-scroll{ overflow: hidden; }
 .link{ 
     text-decoration: underline; 
     cursor: pointer; 
 }
-.hover{
-    cursor: pointer;
+
+/**FORMATTING*/
+.border{ border-style: double; }
+.text-center{ text-align: center; }
+.center-flex { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/**COLORING*/
+.style-text{
+    background-color:rgb(41, 41, 41); 
+    color:antiquewhite;
 }
 .start-button{
     background-color:rgb(80, 80, 80); 
@@ -36,13 +50,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     text-align: center;
     box-shadow: 2px 2px black;
 
-}
-.border{
-    border-style: double;
-}
-.text-center{
-    text-align: center;
-}
-.no-scroll{
-    overflow: hidden
 }
