@@ -11,7 +11,8 @@ export class AppComponent {
   public src : any = null;
   public previousSrc : any = null;
   public nextSrc : any = null;
-  public SRCS : any = []
+  public SRCS : any = [];
+  public fresh : boolean = true;
 
   @ViewChild("drawer")
   public drawer : MatDrawer | undefined;
@@ -30,6 +31,7 @@ export class AppComponent {
   }
 
   public begin(): void{
+    this.fresh = false;
     this.setSource(this.SRCS[0]);
   }
 

@@ -32,7 +32,7 @@ From the <i>/frontend/</i> directory, build the Angular webpacks,
 `cd /frontend/`<br>
 `ng build --prod --output-hashing none`<br>
 
-By default, these webpacks are output into the <i>/build/</i> directory. Configure <b>$NGINX_PORT</b> and <b>$ROOT_DIR</b> in <i>/conf/nginx.conf</i>. <b>$ROOT_DIR</b> should be set equal to the directory where the Angular webpacks were output, i.e. <i>/build/</i>. Once <b>nginx</b> is configured, start/reload the server,
+By default, these webpacks are output into the <i>/build/</i> directory. Configure <b>$NGINX_PORT</b> and <b>$ROOT_DIR</b> in <i>/conf/nginx.conf</i>. <b>$ROOT_DIR</b> should be set equal to the directory where the Angular webpacks were output, i.e. <i>/build/</i>. Once the <i>nginx.conf</i> file  is configured, start/reload the server with the new configuration file,
 
 `nginx -c ./conf/nginx.conf -s start/reload`<br>
 
