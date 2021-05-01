@@ -6,11 +6,28 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-a{ color:slateblue; }
+h2{
+    text-align: left;
+    font-size:larger;
+    color:honeydew;
+    margin-left:5%;
+}
+p {
+    background-color:rgb(78, 78, 78); 
+    color:antiquewhite;
+}
+code {
+    text-align: center;
+    color:wheat;
+}
+
 /** SIZING */
 .fill-width { width: 100% !important; }
 .fill-height { height: 100% !important; }
 .fill{ width: 100% !important; height: 100% !important; }
+.almost-width{ width: 90% !important; }
+.almost-height { height: 90% !important; }
+.almost{ width: 90% !important; height: 90% !important;}
 .shrink-width{ width: 75% !important; }
 .shrink-height{ height: 75% !important; }
 .shrink { width: 75% !important; height: 75% !important;}
@@ -18,24 +35,33 @@ a{ color:slateblue; }
 .quarter-height { height: 25% !important; }
 .quarter{ width: 25% !important; height: 25% !important; }
 
-/**FUNCTIONALITY*/ 
-.hover{ cursor: pointer; }
-.no-scroll{ overflow: hidden; }
-.link{ 
-    text-decoration: underline; 
-    cursor: pointer; 
-}
-
 /**FORMATTING*/
+.horizon-buffer{ padding-right:1%; padding-left:1%;}
+.margin{ margin:2%;}
 .border{ border-style: double; }
 .text-center{ text-align: center; }
+.text-margin{ margin-left: 10%; }
+.indent{ text-indent:5%; }
+.center{ text-align: center; }
 .center-flex { 
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.box{
+    background-color:rgb(78, 78, 78);
+    margin-top:1%;
+    margin-right:15%;
+    margin-left:15%;
+    padding-right:5%;
+    padding-left: 5%;
+    padding-bottom: 1%;
+}
 
 /**COLORING*/
+iframe{ background-color: rgb(84, 84, 84)}
+.menu{ color:slateblue; }
+.text{ color:skyblue; }
 .style-text{
     background-color:rgb(41, 41, 41); 
     color:antiquewhite;
@@ -49,5 +75,36 @@ a{ color:slateblue; }
     margin-right: auto;
     text-align: center;
     box-shadow: 2px 2px black;
+}
 
+/**FUNCTIONALITY*/ 
+.hover{ cursor: pointer; }
+.no-scroll{ overflow: hidden; }
+.link{ 
+    text-decoration: underline; 
+    cursor: pointer; 
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    color:floralwhite;
+    border-bottom: 2px dotted grey;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+  }
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }

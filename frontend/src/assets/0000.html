@@ -1,24 +1,21 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="static_styles.css" rel="stylesheet">
-</head>
-<body><div class="box-margin">
-    <div class="indent"><p>You couldn't help yourself, could you? You just <i>had</i> to click that button. Well, here we are. Are you proud of yourself? We've got a few minutes before the cleanup team arrives at your address, so I guess I might as well take this opportunity to tell you a bit about myself. As it happens, I make web applications, such as the one you are now browsing. If you don't believe me, you can find the source code for this one on my <a href="https://github.com/chinchalinchin/portfolio" rel="noreferrer noopener" target="_blank">GitHub profile</a>.</p></div>
+<span>
+    <link href="static_styles.css" rel="stylesheet" scoped>
+    <div class="box">
+        <h2>introduction</h2>
+        <div class="indent"><p>You couldn't help yourself, could you? You just <i>had</i> to click that button. Well, here we are. Are you proud of yourself? We've got a few minutes before the cleanup crew arrives at your address, so I guess I might as well take this opportunity to tell you a bit about myself. As it happens, I make web applications, such as the one you are now browsing. If you don't believe me, you can find the source code for this one on my <a href="https://github.com/chinchalinchin/portfolio" rel="noreferrer noopener" target="_blank" class="text">GitHub profile</a>.</p></div>
 
-    <p>On there, you will find more documentation about the nuts and bolts of this site, such as how to build and run it from source, how to deploy it onto a <span class="tooltip">cloud<span class="tooltiptext">This one is hosted on <a href="https://aws.amazon.com/" rel="noreferrer noopener" target="_blank">AWS</a></span></span> hosting service, etc. A <span class="tooltip">Docker <span class="tooltiptext"> Read more about Docker <a href="https://docs.docker.com/get-docker/" rel="noreferrer noopener" target="_blank">here</a></span></span> image of this web application is also available; If you prefer to spin up a container from a pre-built image and give it a test run that way, a Docker image can be found on my <a href="https://hub.docker.com/repository/docker/chinchalinchin/portfolio" rel="noreferrer noopener" target="_blank">DockerHub repository</a>. To do so, pull the image from <b>DockerHub</b>,</p>
+        <p>On there, you will find more documentation about the nuts and bolts of this site, such as how to build and run it from source, how to deploy it onto a <span class="tooltip">cloud<span class="tooltiptext">This one is hosted on <a href="https://aws.amazon.com/" rel="noreferrer noopener" target="_blank">AWS</a></span></span> hosting service, etc.</p>
 
-    <div class="text-margin"><code>docker pull chinchalinchin/portfolio:latest</code></div>
+        <p>A <span class="tooltip">Docker <span class="tooltiptext"> Read more about Docker <a href="https://docs.docker.com/get-docker/" rel="noreferrer noopener" target="_blank">here</a></span></span> image of this web application is also available; If you prefer to spin up a container from a pre-built image and give it a test run that way, the image can be found on my <a href="https://hub.docker.com/repository/docker/chinchalinchin/portfolio" rel="noreferrer noopener" target="_blank" class="text">DockerHub repository</a>. To begin, pull the image from <b>DockerHub</b>,</p>
 
-    <p>And then publish it on the port of your choice</p>
+        <div class="text-margin"><code>docker pull chinchalinchin/portfolio:latest</code></div>
 
-    <div class="text-margin"><code>docker run --publish 8080:8080 chinchalinchin/portfolio:latest</code></div>
+        <p>And then publish it on the port of your choice</p>
 
-    <p>After that, you should be able to access this site on <i>localhost:8080</i> from your favorite browser.</p>
+        <div class="text-margin"><code>docker run --publish 8080:8080 chinchalinchin/portfolio:latest</code></div>
 
-    <p>But I said I was going to tell you about myself, not this website. And if you're still reading this, then that means the cleanup team is stuck in traffic, so we've got more time to fill...</p>
-</div></body>
+        <p>After that, you should be able to access this site on <i>localhost:8080</i> from your favorite browser.</p>
+
+        <p>But I said I was going to tell you about myself, not this website. And if you're still reading this, then that means the cleanup crew is stuck in traffic, so we've got more time to fill. Since you like clicking buttons so much, you see that big, honking purple one in the corner? I think we both know what needs done.</p>
+    </div>
+</span>

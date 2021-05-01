@@ -1,22 +1,28 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav/drawer';
 import *  as SRC from '../assets/conf.json';
+import { StaticService } from './services/static.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  public title = 'chinchalinchin web industries';
+  public title_1 = 'chinchalinchin';
+  public title_2 = 'industries'
   public src : any = null;
   public previousSrc : any = null;
   public nextSrc : any = null;
   public SRCS : any = [];
+  public displayHTML : any = null;
   public fresh : boolean = true;
 
   @ViewChild("drawer")
   public drawer : MatDrawer | undefined;
 
+  constructor(private staticService: StaticService){
+
+  }
   public ngOnInit(){
     this.initSrcs();
   }
@@ -36,7 +42,12 @@ export class AppComponent {
   }
 
   public setSource(source: any) : void {
-    if(source){ this.src=source.src; }
+    if(source){ 
+      this.src=source.src; 
+      this.staticService.getStaticHTML(source).subscribe((data)=>{
+        this.displayHTML = data;
+      })
+    }
     else { this.src = null; } 
     this.setNavigationSources(source);
     if(this.drawer){ this.drawer.close(); }
